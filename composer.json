@@ -1,0 +1,15 @@
+{
+    "name": "qiuqiux/serialno",
+    "description": "生成纯数字优惠券序列号",
+    "keywords": ["优惠券序列号", "序列号", "serialNo"],
+    "require": {
+        "qiuqiux/base-convert": "~1.0"
+    },
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "QiuQiuX\\SerialNo\\": "src/"
+        }
+    }
+}
