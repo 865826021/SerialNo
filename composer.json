@@ -1,7 +1,7 @@
 {
     "name": "qiuqiux/serialno",
-    "description": "生成纯数字优惠券序列号",
-    "keywords": ["优惠券序列号", "序列号", "serialNo"],
+    "description": "生成唯一序列号，根据指定ID生成唯一序列号批次",
+    "keywords": ["优惠券序列号", "序列号", "唯一序列号", "serialNo"],
     "require": {
         "qiuqiux/base-convert": "~1.0"
     },

@@ -6,12 +6,30 @@ namespace QiuQiuX\SerialNo;
 class PseudoRandom
 {
 
-    public function generate($serial, $amount, $length = '', $padding)
+    protected $mulFactor;
+
+    protected $diffFactor;
+
+    protected $amount;
+
+    protected $length;
+
+    protected $padding;
+
+    public function __construct($mulFactor, $diffFactor, $amount, $length, $padding)
     {
-        // TODO 暂时写死
-        $num = (101 * $serial + 499) % $amount;
-        if ($length) {
-            return str_pad($num, $length, $padding, STR_PAD_LEFT);
+        $this->mulFactor = $mulFactor;
+        $this->diffFactor = $diffFactor;
+        $this->amount = $amount;
+        $this->length = $length;
+        $this->padding = $padding;
+    }
+
+    public function generate($serial)
+    {
+        $num = ($this->mulFactor * $serial + $this->diffFactor) % $this->amount;
+        if ($this->length) {
+            return str_pad($num, $this->length, $this->padding, STR_PAD_LEFT);
         }
         return $num;
     }
