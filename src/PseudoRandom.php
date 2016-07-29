@@ -27,11 +27,13 @@ class PseudoRandom
 
     public function generate($serial)
     {
-        $num = ($this->mulFactor * $serial + $this->diffFactor) % $this->amount;
-        if ($this->length) {
-            return str_pad($num, $this->length, $this->padding, STR_PAD_LEFT);
-        }
-        return $num;
+        $mul = gmp_mul(strval($this->mulFactor), strval($serial));
+        $add = gmp_add($mul, $this->diffFactor);
+        $mod = gmp_mod($add, strval($this->amount));
+        $num = gmp_strval($mod);
+//        $num = ($this->mulFactor * $serial + $this->diffFactor) % $this->amount;
+
+        return str_pad($num, $this->length, $this->padding, STR_PAD_LEFT);
     }
 
 }
